@@ -1,70 +1,94 @@
-# Getting Started with Create React App
+## News Central App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This App was build to allow the users to do searches about any subject (specific topic or keyword) he/she wants to read, and 
+the app will bring news articles that mentions the user's search, limited to the last 24 months. 
+The API used on this app tracks headlines in 7 categories across over 50 countries, and at over a hundred top publications
+and blogs, in near real time.
+The News Central App will list all articles related to the search showing the article headline/title, the source and a link
+to the full article.
 
-## Available Scripts
+## Motivation
 
-In the project directory, you can run:
+The motivation for this project was to move further on my work with React Hooks, and consume a great API and have some extra functionalities.
 
-### `yarn start`
+## Tech/framework used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This App was built with:
+- React.js
+- React Hooks
+- Axios
+- Semantic UI
+- Jest
+- News API
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## The Code
 
-### `yarn test`
+The Code is divided in the following schema:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Index.js** component
+component that renders App.js inside the div with id=root on index.html
 
-### `yarn build`
+**App.js**
+functional component with react hooks useState.This Component import and run Search.js and  Articles.js components.
+Search.js component will have three props: query, to make sure the search function will receive the
+query value added by the user; setQuery to add the query value and the search function.
+Articles.js sends 'results' and 'invalidSearch' props, that will send an array
+with all the info returned on the search, and the total amount or articles found with the query used.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Search.js**(insid components folder)
+It has a h1 tag with the Apps title, and has an input element that will receive the topic or keyword the user wants 
+to find articles about. The Component has a search arrow funch using async/await syntax on the search, together with axios. 
+This function receives an event from the input element, the function will be called only when the user clicks on Enter key.
+The if statement here will have 2 conditions, first query cannot be empty, second the e.key should be equals to 'Enter'.
+Confirming the Enter was clicked the input's value will be set to the query via setQuery. The data related to that query 
+from the API will be returned as 'data' via the axios.get, using the URL with the api key and the params needed to make it work.
+Now the search function will set 'results' through setResults, and the invalid const will be set by setInvalid confirming 
+the totalAmount of articles returned by the query.
+				
+**Articles.js**(inside components folder)
+functional component that receives the props from Search component. First we have a variable renderedResults declared, 
+and we have an 'if' and an 'else if' statements. The first if will check if the query is valid by checking if its returning 
+a total amount of articles greater than 0.If the total amount returned is equal to zero then a negative error message shows on the page.
+On the 'else if' statement we are checking if the results are not underfined, then if not undefined the renderedResults variable 
+will run the map() function and run through all the resulting items from the user's search and will return the title, source name, 
+and a link with the original's article url link. This component returns this variable renderedResults. 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Download the zip folder or git clone the https://github.com/JansenMendonca/News-Central-App.git, 
+then navigate to the directory and just click `npm start`
 
-### `yarn eject`
+## API Reference
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+News API provides breaking news headlines, and search for articles from news sources and blogs all over the web. Please visit it here: *https://newsapi.org/* 
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Tests
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Unit Tests - Jest
+Unit tests were written with *jest* for each of the components. The details about it can be found below:
+- App.test.js: makes sure the App component renders without crashing;
+- Search.test.js: makes sure Search component renders without crashing;
+- Articles.test.js: has two tests, the first one makes sure the Articles component renders without crashing with valid Search, 
+and the second makes sure the Articles will render properly the error message if an invalid search is sent;
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+To run the unit tests just open the terminal under the project dir, and type `npm test` 
 
-## Learn More
+### Manual Tests
+Here I would like to suggest some scenarios for manual tests:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**1st scenario**:
+***Given***  a user adds any topic or keyword on the Search element
+***and*** the user clicks Enter button
+***then*** the app should return a list of articles with headline, source and a link to see full original article
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**2nd scenario**:
+***Given*** the Search element is empty, only showing Search as placeholder
+***and*** the user clicks the Enter button
+***then*** no result should be shown ***and*** the App does not break ***and*** the Devtools console should not show any error.
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**3rd scenario**:
+***Given*** the user types an invalid keyword with random characters(e.g. '@#bshv 000')
+***and*** the user clicks the Enter button
+***then*** an error message should show on the screen with the following words:
+*Search couldn't find a valid result
+Please try again*
