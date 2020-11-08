@@ -55,7 +55,7 @@ and a link with the original's article url link. This component returns this var
 
 ## Installation
 
-Download the zip folder or git clone the https://github.com/JansenMendonca/News-Central-App.git, 
+Download the zip folder or git clone the https://github.com/JansenMendonca/NewsCentralApp.git, 
 then navigate to the directory and just click `npm start`
 
 ## API Reference
