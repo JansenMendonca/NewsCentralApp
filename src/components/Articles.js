@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './app.css';
 
 
 const Articles = (props) => {
@@ -21,16 +21,27 @@ const Articles = (props) => {
     }else if(props.results ){
         renderedResults = props.results.map((result)=>{
             return(
-                <div className="ui divided items" key={result.url} >
-                    <div className="item">
-                        <div className="middle aligned content">
-                            <h2>{result.title}</h2>
-                            <p>Source:{result.source.name}</p>
-                            <a href={result.url} target="_blank" rel="noreferrer">Click to see full article </a>
-                            <hr />
-                        </div>
+                <article className="ui relaxed divided list" key={result.url} >
+                    <div className="item ">
+                        <div className="content main">
+                            <div className="middle aligned content">
+                                <div    className="right floated content">
+                                    <a 
+                                        className="ui button"
+                                        href={result.url}
+                                        target="_blank" rel="noreferrer"    
+                                    >
+                                    Go to Article
+                                    </a>
+                                </div>
+                                <h2>{result.title}</h2>                                
+                                <p>Source:{result.source.name}</p>                            
+                                {/*<a href={result.url} target="_blank" rel="noreferrer">Click to see full article </a>*/}
+                                <hr />
+                            </div>
+                        </div>                        
                     </div>
-                </div>                
+                </article>                
             )
         })
     }

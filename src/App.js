@@ -4,6 +4,7 @@ import {today} from './utils/currentDate';
 import Search from './components/Search';
 import Articles from './components/Articles';
 
+
 const App = () =>{
 
     const[query, setQuery] = useState('');

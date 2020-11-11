@@ -1,9 +1,9 @@
 import React from 'react';
-
+import './app.css';
 
 const Search = (props) => {
     return(
-        <div className="ui inverted segment">            
+        <div className="ui inverted segment main">            
             <div className="ui inverted divider">
                 <h1>News Central App</h1>
             </div>
