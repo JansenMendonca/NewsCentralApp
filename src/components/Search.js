@@ -11,7 +11,7 @@ const Search = (props) => {
             <div className="ui inverted divider"></div>
             <div className="ui fluid inverted transparent icon input">
                 <input type="text" placeholder="Search..." value={props.query} onChange={(e) => props.setQuery(e.target.value)} onKeyPress={props.search} />
-                <i className="search icon"></i>
+                <i className="search icon"/>
             </div>
         </div>
     )

@@ -35,7 +35,7 @@ const Articles = (props) => {
                                     </a>
                                 </div>
                                 <h2>{result.title}</h2>                                
-                                <p>Source:{result.source.name}</p>                            
+                                <p> Source:{result.source.name} </p>                            
                                 <hr />
                             </div>
                         </div>                        
