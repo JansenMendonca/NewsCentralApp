@@ -36,7 +36,6 @@ const Articles = (props) => {
                                 </div>
                                 <h2>{result.title}</h2>                                
                                 <p>Source:{result.source.name}</p>                            
-                                {/*<a href={result.url} target="_blank" rel="noreferrer">Click to see full article </a>*/}
                                 <hr />
                             </div>
                         </div>                        
