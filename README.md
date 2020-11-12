@@ -51,15 +51,11 @@ and we have an 'if' and an 'else if' statements. The first if will check if the 
 a total amount of articles greater than 0.If the total amount returned is equal to zero then a negative error message shows on the page.
 On the 'else if' statement we are checking if the results are not underfined, then if not undefined the renderedResults variable 
 will run the map() function and run through all the resulting items from the user's search and will return the title, source name, 
-and a link with the original's article url link. This component returns this variable renderedResults. 
+and a 'Go to article' button that will direct the user to original url link. This component returns this variable renderedResults. 
 
 ## Installation
 
-<<<<<<< HEAD
-Download the zip folder or git clone the https://github.com/JansenMendonca/News-Central-App.git, 
-=======
 Download the zip folder or git clone the https://github.com/JansenMendonca/NewsCentralApp.git, 
->>>>>>> 54fada5948d079557f5586bd6d245c63fed720e1
 then navigate to the directory and just click `npm start`
 
 ## API Reference
