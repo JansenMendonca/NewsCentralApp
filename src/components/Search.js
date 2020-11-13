@@ -4,7 +4,7 @@ import './app.css';
 const Search = (props) => {
     return(
         <div className="ui inverted segment main">            
-            <div className="ui inverted divider">
+            <div className="ui inverted divider center">
                 <h1>News Central App</h1>
             </div>
             <div className="ui inverted left icon input"></div>
