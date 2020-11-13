@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/components/app.css"],"names":[],"mappings":"AACA,GACI,WACJ,CAEA,MACI,YACJ,CAEA,QACI,iBACJ","file":"main.dcbc9213.chunk.css","sourcesContent":["\r\nh1{\r\n    padding: 5px;    \r\n}\r\n\r\n.main{\r\n    padding: 10px;\r\n}\r\n\r\n.center{\r\n    text-align: center;\r\n}"]}
