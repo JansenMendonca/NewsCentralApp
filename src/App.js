@@ -11,7 +11,7 @@ const App = () =>{
     const[results,setResults] = useState([]);
     const[invalid,setInvalid] = useState([]);
 
-    const URL = 'http://newsapi.org/v2/everything?apiKey=9e9906e1ae674954841e68f222314edb';
+    const URL = 'https://newsapi.org/v2/everything?apiKey=9e9906e1ae674954841e68f222314edb';
     const search = async(e)=>{
         if(query && e.key === 'Enter'){
             const {data} = await axios.get(URL,{
@@ -26,8 +26,6 @@ const App = () =>{
             setQuery('');
         }
     };
-
-
         return(
             <div>
                 <Search query={query} setQuery={setQuery} search={search}/>
