@@ -26,12 +26,12 @@ const App = () =>{
             setQuery('');
         }
     };
-        return(
-            <div>
-                <Search query={query} setQuery={setQuery} search={search}/>
-                <Articles results={results} invalidSearch={invalid}/>
-            </div>
-        )
+    return(
+        <div>
+            <Search query={query} setQuery={setQuery} search={search}/>
+            <Articles results={results} invalidSearch={invalid}/>
+        </div>
+    )
 };
 
 export default App;
